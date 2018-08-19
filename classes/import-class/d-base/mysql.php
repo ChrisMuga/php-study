@@ -76,10 +76,14 @@ class Mysql{
 
                 #load values into respective arrays
 
-                $this->data["id"]   = $row["id"];
-                $this->data["name"] = $row['name'];
+                $this->data["id"]               = $row["id"];
+                $this->data["name"]             = $row['name'];
+                $this->data["class"]            = $row["class"];
+                $this->data["phone_number"]     = $row['phone_number'];
+                $this->data["location"]         = $row["location"];
+             
 
-                $this->students[]   = $this->data;
+                $this->students[]               = $this->data;
             }
 
             #$this->students = json_encode($this->students);

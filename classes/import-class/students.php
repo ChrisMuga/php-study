@@ -28,8 +28,37 @@
                 foreach($students as $student)
                 {
                     ?>
-                    <a href="#" class="list-group-item list-group-item-action"> <span class="badge badge-primary mx-3"><?php echo $student['id']; ?></span> <span class="badge badge-danger mx-3"><?php echo $student['name']; ?></span> </a>
-                
+                    <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#x<?php echo $student['id'];?>"><span class="badge badge-primary mx-3"><?php echo $student['id']; ?></span> <span class="badge badge-danger mx-3"><?php echo $student['name']; ?></span> </a>
+                    
+                    <!-- modal -->
+                    <div class="modal fade" id="x<?php echo $student['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><span class="badge badge-danger"><?php echo $student['name'];?> : <?php echo $student['id'];?></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            
+                                        <h1><?php echo $student['name'];?></h1>
+                                    
+                                        <h2 class="text-success"><?php echo $student['phone_number'];?></h2>
+                                   
+                                        <h3><?php echo $student['location'];?></h3>
+                                   
+                                        <h5>Class <?php echo $student['class'];?></h5>
+                                   
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- modal -->
 
                     <?php
                 }
