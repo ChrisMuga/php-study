@@ -10,15 +10,18 @@ require_once('d-base/mysql.php');
 // }
 
 
-$mysql->insert($_POST);
-if($mysql->query_code == 0)
-{
-    echo "Success";
-}
-else
-{
-    echo "Error: ". $mysql->query_msg;
-}
+// $mysql->insert($_POST);
+// if($mysql->query_code == 0)
+// {
+//     echo "Success";
+// }
+// else
+// {
+//     echo "Error: ". $mysql->query_msg;
+// }
+
+
+$mysql->fetch_students();
 
 
 ?>

@@ -21,8 +21,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Students</a>
+            <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="students.php">Students</a>
           </div>
         </div>
       </nav>

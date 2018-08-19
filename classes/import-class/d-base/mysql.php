@@ -60,6 +60,36 @@ class Mysql{
 
 
     }
+
+    #fetch all students
+
+    public function fetch_students()
+    {
+        $this->students =   array();
+        $this->data     =   array();
+        $sql = "SELECT * FROM students_info";
+        $result = $this->conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            #loop through each row
+            while($row = $result->fetch_assoc()) {
+
+                #load values into respective arrays
+
+                $this->data["id"]   = $row["id"];
+                $this->data["name"] = $row['name'];
+
+                $this->students[]   = $this->data;
+            }
+
+            #$this->students = json_encode($this->students);
+          
+            
+        } else {
+            echo "0 results";
+        }
+    }
+
 }
 
 $mysql = new Mysql;
