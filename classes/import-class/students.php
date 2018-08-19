@@ -20,7 +20,7 @@
                 $students = $mysql->students;
             ?>
 
-            <a href="#" class="list-group-item list-group-item-action active text-center"> Students <?php echo count($students);?></a>
+            <a href="#" class="list-group-item list-group-item-action active text-center"> <?php echo count($students);?> Students</a>
 
             <?php
 
