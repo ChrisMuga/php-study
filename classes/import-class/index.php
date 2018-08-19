@@ -35,7 +35,7 @@ else
 }
 ?>
 
-<div class="alert alert-primary my-2 text-right">
+<div class="alert alert-primary my-2 text-center">
    <h3> <b>Student Information<b> </h3>
 </div>
 
@@ -43,7 +43,36 @@ else
     <div class="col-md-4 py-4">
         <h3 class="text-danger">Register Student</h3>
         <hr/>
-        <form action="compute.php" method="post">
+        <?php 
+
+            if(empty($_POST))
+            {
+                echo "Empty";
+            }
+            else
+            {
+                #echo "Not Empty";
+                $mysql->insert($_POST);
+                if($mysql->query_code == 0)
+                {
+                    ?>
+
+                    <div class="alert alert-success"><?php echo $mysql->query_msg; ?></div>
+                    
+                    <?php
+                }
+                else
+                {
+                    ?>
+
+                    <div class="alert alert-danger"><?php echo $mysql->query_msg; ?></div>
+                    
+                    <?php
+                }
+            }
+
+        ?>
+        <form action="#" method="post">
             <input type="number"    class="form-control text-danger"                    value="<?php echo rand(10,10000);?>" name="id" required/>
             <input type="text"      class="form-control"    placeholder="Student Name"  name="name" required/>
             <input type="text"      class="form-control"    placeholder="Phone Number"  name="phone_number" required/>

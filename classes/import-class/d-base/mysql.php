@@ -1,8 +1,10 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 class Mysql{
-
+    public $conn;
     #connection
     public function connect()
     {
@@ -12,10 +14,10 @@ class Mysql{
         $dbname         = "students";
 
         #Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        $this->conn = new mysqli($servername, $username, $password, $dbname);
 
         #Check connection
-        if ($conn->connect_error)
+        if ($this->conn->connect_error)
         {
             $this->connection_msg     =    $conn->connect_error;
             $this->connection_signal  =    1;
@@ -34,21 +36,26 @@ class Mysql{
         $values = array();
         foreach($args as $key => $value)
         {
-            echo $key.": ".$value."<br/>";
+            #echo $key.": ".$value."<br/>";
             $values[] = $value;
         }
         
         $svalues = "'".implode("','",$values)."'";
-        echo $svalues;
+        #echo $svalues;
 
         $sql = "INSERT INTO students_info VALUES (".$svalues.")";
 
-        echo '<br/>'.$sql;
+        #echo '<br/>'.$sql;
 
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        if ( $this->conn->query($sql) === TRUE ) 
+        {
+            $this->query_msg    =   "New record created successfully";
+            $this->query_code   =   0;
+        } 
+        else 
+        {
+            $this->query_msg    =   $this->conn->error;
+            $this->query_code   =   1;
         }
 
 
