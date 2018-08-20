@@ -13,10 +13,24 @@ this directory contains a mini-project that basically stores Student information
 the class in classes/d-base/mysql.php handles mysql queries.
 this class is imported by respective files, for example index.php, which has the UI for student registration.
 
-    # header.php
+## header.php
 
-        contains header tags and initial imports.
+    contains header tags and initial imports.
 
-    # footer.php
+## footer.php
 
-        contains footer tags and footer imports.
+    contains footer tags and footer imports.
+
+##index.php
+
+    is the first page that renders the UI for student registration.
+
+##students.php
+
+    displays a list of all registered students.
+    executes the fetch_students method in the **Mysql** class.
+
+##edit.php
+
+    fetches the student details using their IDs and renders them to the edit form.
+    utilizes get_student method in the **Mysql** class.
