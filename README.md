@@ -21,16 +21,16 @@ this class is imported by respective files, for example index.php, which has the
 
     contains footer tags and footer imports.
 
-##index.php
+## index.php
 
     is the first page that renders the UI for student registration.
 
-##students.php
+## students.php
 
     displays a list of all registered students.
-    executes the fetch_students method in the **Mysql** class.
+    executes the fetch_students method in the __ Mysql __ class.
 
-##edit.php
+## edit.php
 
     fetches the student details using their IDs and renders them to the edit form.
-    utilizes get_student method in the **Mysql** class.
+    utilizes get_student method in the __ Mysql __ class.
