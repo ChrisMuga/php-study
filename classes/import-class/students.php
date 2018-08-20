@@ -49,6 +49,8 @@
                                         <h3><?php echo $student['location'];?></h3>
                                    
                                         <h5>Class <?php echo $student['class'];?></h5>
+
+                                        <a href="edit.php?id=<?php echo $student['id']; ?>" class="btn btn-warning">Edit</a>
                                    
                             
                         </div>
@@ -72,7 +74,7 @@
 
 
 <?php
-    include('footer.php');
+    require_once('footer.php');
 ?>
     
 

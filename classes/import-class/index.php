@@ -86,7 +86,7 @@ else
 </div>
 
 <?php
-include('footer.php');
+require_once('footer.php');
 ?>
     
 

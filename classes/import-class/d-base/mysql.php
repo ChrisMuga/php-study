@@ -94,6 +94,41 @@ class Mysql{
         }
     }
 
+    #fetch students based on params.
+
+    public function get_student( $key, $value )
+    {
+
+        $this->students =   array();
+        $this->data     =   array();
+        $sql = "SELECT * FROM students_info WHERE ".$key." = '".$value."' LIMIT 1";
+        $result = $this->conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            #loop through each row
+            while($row = $result->fetch_assoc()) {
+
+                #load values into respective arrays
+
+                $this->data["id"]               = $row["id"];
+                $this->data["name"]             = $row['name'];
+                $this->data["class"]            = $row["class"];
+                $this->data["phone_number"]     = $row['phone_number'];
+                $this->data["location"]         = $row["location"];
+             
+
+                $this->students[]               = $this->data;
+            }
+
+            #$this->students = json_encode($this->students);
+          
+            
+        } else {
+            echo "0 results";
+        }
+
+    }
+
 }
 
 $mysql = new Mysql;
