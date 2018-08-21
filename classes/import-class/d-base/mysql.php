@@ -31,7 +31,7 @@ class Mysql{
     }
 
     #inserts
-    public function insert($args)
+    public function insert($model, $args)
     {
         $values = array();
         foreach($args as $key => $value)
@@ -43,7 +43,7 @@ class Mysql{
         $svalues = "'".implode("','",$values)."'";
         #echo $svalues;
 
-        $sql = "INSERT INTO students_info VALUES (".$svalues.")";
+        $sql = "INSERT INTO ".$model." VALUES (".$svalues.")";
 
         #echo '<br/>'.$sql;
 
@@ -63,75 +63,91 @@ class Mysql{
 
     #fetch all students
 
-    public function fetch_students()
+    public function fetch($entity)
     {
         $this->students =   array();
         $this->data     =   array();
-        $sql = "SELECT * FROM students_info";
+        $sql = "SELECT * FROM ".$entity;
         $result = $this->conn->query($sql);
+        if( isset( $result->num_rows ) )
+        {
+            if ($result->num_rows > 0) {
+                #loop through each row
+                while($row = $result->fetch_assoc()) {
 
-        if ($result->num_rows > 0) {
-            #loop through each row
-            while($row = $result->fetch_assoc()) {
+                    #load values into respective arrays
 
-                #load values into respective arrays
+                    $this->data["id"]               = $row["id"];
+                    $this->data["name"]             = $row['name'];
+                    $this->data["class"]            = $row["class"];
+                    $this->data["phone_number"]     = $row['phone_number'];
+                    $this->data["location"]         = $row["location"];
+                
 
-                $this->data["id"]               = $row["id"];
-                $this->data["name"]             = $row['name'];
-                $this->data["class"]            = $row["class"];
-                $this->data["phone_number"]     = $row['phone_number'];
-                $this->data["location"]         = $row["location"];
-             
+                    $this->students[]               = $this->data;
+                }
 
-                $this->students[]               = $this->data;
-            }
-
-            #$this->students = json_encode($this->students);
-          
+                #$this->students = json_encode($this->students);
             
-        } else {
-            echo "0 results";
+                
+            } else {
+                echo "0 results";
+            }
+        }
+        else
+        {
+            $this->error        = 0;
+            $this->error_msg    = "Nothing to display";
         }
     }
 
     #fetch students based on params.
 
-    public function get_student( $key, $value )
+    public function get( $model, $key, $value )
     {
 
         $this->students =   array();
         $this->data     =   array();
-        $sql = "SELECT * FROM students_info WHERE ".$key." = '".$value."' LIMIT 1";
+        $sql = "SELECT * FROM ". $model ." WHERE ".$key." = '".$value."' LIMIT 1";
         $result = $this->conn->query($sql);
+        if( isset( $result->num_rows ) )
+        {
+            if ($result->num_rows > 0) {
+                #loop through each row
+                while($row = $result->fetch_assoc()) {
 
-        if ($result->num_rows > 0) {
-            #loop through each row
-            while($row = $result->fetch_assoc()) {
+                    #load values into respective arrays
 
-                #load values into respective arrays
+                    $this->data["id"]               = $row["id"];
+                    $this->data["name"]             = $row['name'];
+                    $this->data["class"]            = $row["class"];
+                    $this->data["phone_number"]     = $row['phone_number'];
+                    $this->data["location"]         = $row["location"];
+                
 
-                $this->data["id"]               = $row["id"];
-                $this->data["name"]             = $row['name'];
-                $this->data["class"]            = $row["class"];
-                $this->data["phone_number"]     = $row['phone_number'];
-                $this->data["location"]         = $row["location"];
-             
+                    $this->students[]               = $this->data;
+                }
 
-                $this->students[]               = $this->data;
-            }
-
-            #$this->students = json_encode($this->students);
-          
+                #$this->students = json_encode($this->students);
             
-        } else {
-            echo "0 results";
+                
+            } else {
+                echo "0 results";
+            }
+        }
+        else
+        {
+
+            $this->error        = 0;
+            $this->error_msg    = "Nothing to display";
+
         }
 
     }
 
     #update/edit
 
-    public function update($args)
+    public function update($model, $args)
     {
         #create part of the query string
 
@@ -144,7 +160,7 @@ class Mysql{
         }
         $str    = rtrim($str,", ");    
 
-        $sql = "UPDATE students_info SET ".$str." WHERE id = '".$args['id']."'";
+        $sql = "UPDATE ".$model." SET ".$str." WHERE id = '".$args['id']."'";
 
         if ( $this->conn->query($sql) === TRUE ) 
         {

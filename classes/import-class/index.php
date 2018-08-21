@@ -52,7 +52,7 @@ else
             else
             {
                 #echo "Not Empty";
-                $mysql->insert($_POST);
+                $mysql->insert("students",$_POST);
                 if($mysql->query_code == 0)
                 {
                     ?>

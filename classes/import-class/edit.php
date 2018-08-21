@@ -14,9 +14,15 @@
         </div>
         <?php
             $id = $_GET['id'];
-            $mysql->get_student("id", $id);
+            $mysql->get("students","id", $id);
             
         ?>
+
+        <?php if ( isset( $mysql->error) ) if ($mysql->error == 0) {?>
+
+            <div class ="alert alert-danger"><?php echo $mysql->error_msg; ?></div>
+
+        <?php } ?>
 
         <form action="#" method="POST">
             <label class="font-weight-bold text-danger">ID</label><input type="text"  class="form-control" name="id" value="<?php echo $mysql->students[0]['id']?>" readonly/>
@@ -33,7 +39,7 @@
 
                 if($_POST)
                 {
-                    $mysql->update($_POST);
+                    $mysql->update("students", $_POST);
                 }
                 if (isset($mysql->query_code))
                 {

@@ -16,9 +16,15 @@
         
             <?php
 
-                $mysql->fetch_students();
+                $mysql->fetch("students");
                 $students = $mysql->students;
             ?>
+
+            <?php if ( isset( $mysql->error) ) if ($mysql->error == 0) {?>
+
+                <div class ="alert alert-warning"><?php echo $mysql->error_msg; ?></div>
+
+            <?php } ?>
 
             <a href="#" class="list-group-item list-group-item-action active text-center"> <?php echo count($students);?> Students</a>
 
