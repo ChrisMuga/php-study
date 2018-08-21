@@ -67,7 +67,7 @@ this class is imported by respective files, for example index.php, which has the
     id is the field you want to query
     $id is the value you want to query in that field.
 
-## update
+### update
 
     $mysql->update("students", $_POST);
     
