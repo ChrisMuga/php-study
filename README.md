@@ -73,3 +73,11 @@ this class is imported by respective files, for example index.php, which has the
     
     this method updates the students details with the values in the post array.
     is included in the post array.
+
+### fields
+
+    $this->fields($model)
+    where model is the name of the table in question.
+    returns an array with all the fields of that particular table.
+
+

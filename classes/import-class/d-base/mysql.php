@@ -65,6 +65,10 @@ class Mysql{
 
     public function fetch($entity)
     {
+
+        #fetch fields.
+        $fields = $this->fields($entity);
+
         $this->students =   array();
         $this->data     =   array();
         $sql = "SELECT * FROM ".$entity;
@@ -77,11 +81,10 @@ class Mysql{
 
                     #load values into respective arrays
 
-                    $this->data["id"]               = $row["id"];
-                    $this->data["name"]             = $row['name'];
-                    $this->data["class"]            = $row["class"];
-                    $this->data["phone_number"]     = $row['phone_number'];
-                    $this->data["location"]         = $row["location"];
+                    foreach ($fields as $field)
+                    {
+                        $this->data[$field]     =   $row[$field];
+                    }
                 
 
                     $this->students[]               = $this->data;
@@ -101,10 +104,35 @@ class Mysql{
         }
     }
 
+    #get the columns in a table
+
+    public function fields($model)
+    {
+          #fetch all columns in the table/model
+          $this->fields = array();
+          $result = $this->conn->query("SHOW COLUMNS FROM ".$model);
+          if (!$result) {
+              echo 'Could not run query: ';
+              exit;
+          }
+          if ($result->num_rows > 0) {
+              while ( $row = $result->fetch_assoc() ) {
+                  $this->fields[] = $row["Field"];
+              }
+          }
+
+          return $this->fields;
+    }
+
     #fetch students based on params.
 
     public function get( $model, $key, $value )
     {
+
+        #fetch fields.
+        $fields = $this->fields($model);
+
+
 
         $this->students =   array();
         $this->data     =   array();
@@ -118,11 +146,11 @@ class Mysql{
 
                     #load values into respective arrays
 
-                    $this->data["id"]               = $row["id"];
-                    $this->data["name"]             = $row['name'];
-                    $this->data["class"]            = $row["class"];
-                    $this->data["phone_number"]     = $row['phone_number'];
-                    $this->data["location"]         = $row["location"];
+                    foreach ($fields as $field)
+                    {
+                        $this->data[$field]     =   $row[$field]; 
+                    }
+              
                 
 
                     $this->students[]               = $this->data;

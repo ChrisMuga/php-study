@@ -27,6 +27,7 @@
         <form action="#" method="POST">
             <label class="font-weight-bold text-danger">ID</label><input type="text"  class="form-control" name="id" value="<?php echo $mysql->students[0]['id']?>" readonly/>
             <label class="font-weight-bold text-danger">Name</label><input type="text" name="name" class="form-control text-right text-success" value="<?php echo $mysql->students[0]['name']; ?>" required/>
+            <label class="font-weight-bold text-danger">Email Address</label><input type="email"  class="form-control text-right text-success" name="email" value="<?php echo $mysql->students[0]['email']?>" />
             <label class="font-weight-bold text-danger">Phone Number</label><input type="text" name="phone_number" class="form-control text-right text-success" value="<?php echo $mysql->students[0]['phone_number']; ?>" required/>
             <label class="font-weight-bold text-danger">Location</label><input type="text" name="location" class="form-control text-right text-success" value="<?php echo $mysql->students[0]['location']; ?>" required/>
             <label class="font-weight-bold text-danger">Class</label><input type="text" name="class" class="form-control text-right text-success" value="<?php echo $mysql->students[0]['class']; ?>" required/>
