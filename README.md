@@ -38,3 +38,38 @@ this class is imported by respective files, for example index.php, which has the
         The edit button triggers the update method in the Mysql class, that fetches the $_POST array and makes respective updates on the    
         fields.
         Indexing is by ID.
+
+
+
+# MYSQL FUNCTIONS.
+
+## These are the methods in the Mysql class.
+
+### insert
+
+    $mysql->insert("students",$_POST);
+
+    where $_POST is the $_POST array and "students" is the table you're fetching from.
+
+### fetch
+
+    $mysql->fetch("students");
+
+    where "students" is the table your are fetching from.
+
+### get
+
+    $mysql->get("students","id", $id);
+
+    gets the records of a specific entity,
+    for example this method fetched the student's details based on his/her id.
+    where "students" is the table your are fetching from.
+    id is the field you want to query
+    $id is the value you want to query in that field.
+
+##update
+
+    $mysql->update("students", $_POST);
+    
+    this method updates the students details with the values in the post array.
+    is included in the post array.
