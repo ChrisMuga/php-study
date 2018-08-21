@@ -129,6 +129,36 @@ class Mysql{
 
     }
 
+    #update/edit
+
+    public function update($args)
+    {
+        #create part of the query string
+
+        $str    = "";
+        foreach($args as $key => $value)
+        {
+         
+            $str        .=  $key." = '".$value."', ";
+           
+        }
+        $str    = rtrim($str,", ");    
+
+        $sql = "UPDATE students_info SET ".$str." WHERE id = '".$args['id']."'";
+
+        if ( $this->conn->query($sql) === TRUE ) 
+        {
+            $this->query_msg    =   "Update successful";
+            $this->query_code   =   0;
+        } 
+        else 
+        {
+            $this->query_msg    =   $this->conn->error;
+            $this->query_code   =   1;
+        }
+
+    }
+
 }
 
 $mysql = new Mysql;
