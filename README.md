@@ -34,3 +34,7 @@ this class is imported by respective files, for example index.php, which has the
 
     fetches the student details using their IDs and renders them to the edit form.
     utilizes get_student method in the __ Mysql __ class.
+
+        The edit button triggers the update method in the Mysql class, that fetches the $_POST array and makes respective updates on the    
+        fields.
+        Indexing is by ID.
