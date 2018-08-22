@@ -1,10 +1,13 @@
 <?php
+namespace Query;
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 class Mysql{
-    public $conn;
+    
+
     #connection
     public function connect()
     {
@@ -14,7 +17,7 @@ class Mysql{
         $dbname         = "students";
 
         #Create connection
-        $this->conn = new mysqli($servername, $username, $password, $dbname);
+        $this->conn = new \mysqli($servername, $username, $password, $dbname);
 
         #Check connection
         if ($this->conn->connect_error)

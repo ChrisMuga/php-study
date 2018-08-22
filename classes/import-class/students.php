@@ -56,6 +56,8 @@
                                    
                                         <h5>Class <?php echo $student['class'];?></h5>
 
+                                        <h6 class="text-danger font-weight-bold"> <?php echo $student['email'];?></h6>
+
                                         <a href="edit.php?id=<?php echo $student['id']; ?>" class="btn btn-warning">Edit</a>
                                    
                             
