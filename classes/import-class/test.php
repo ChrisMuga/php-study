@@ -1,12 +1,8 @@
 <?php
-require __DIR__. '/vendor/autoload.php';
-
-$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv = new Dotenv();
 $dotenv->load();
-$hostname = getenv('pass');
+$x =  getenv('pass');
+echo $x;
 
-
-
-echo $hostname;
 
 ?>
