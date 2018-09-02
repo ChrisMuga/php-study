@@ -16,10 +16,10 @@ require_once('d-base/mysql.php');
         <!-- buttons -->
         <div class = "row">
             <div class="col-md-8">
-                <button class="btn btn-success form-control">Enter</button>
+                <button class="btn btn-success form-control">Enter &nbsp; <i class="fas fa-arrow-right" style="right:0px;"></i> </button>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-danger form-control">Clear</button>
+                <button class="btn btn-danger form-control">Clear &nbsp; <i class="fas fa-brush"></i></button>
             </div>
         </div>
         <!-- buttons -->
