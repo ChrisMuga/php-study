@@ -9,7 +9,7 @@ require_once('d-base/mysql.php');
 <div class = "row my-2 d-flex justify-content-center">
 
     <!-- col -->
-        <form action=""></form>
+    <div class="col-md-4">
         <div class="alert alert-dark">Student Log-In</div>
         <input type="mail" class="form-control" name="email"  placeholder="E-Mail Address"/>
         <input type="password" class="form-control" name="email"  placeholder="Password"/>

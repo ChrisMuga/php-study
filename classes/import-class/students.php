@@ -34,7 +34,7 @@
                 foreach($students as $student)
                 {
                     ?>
-                    <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#x<?php echo $student['id'];?>"><span class="badge badge-primary mx-3"><?php echo $student['id']; ?></span> <span class="badge badge-danger mx-3"><?php echo $student['name']; ?></span> <span class="badge badge-success mx-3"><?php echo $student['email']; ?></span>  </a>
+                    <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#x<?php echo $student['id'];?>"><span class="badge badge-primary mx-3"><?php echo $student['id']; ?></span> <span class="badge badge-danger mx-3"><?php echo $student['name']; ?></span> <span class="badge badge-dark mx-3 float-right">CLASS <?php echo $student['class']; ?></span>  </a>
                     
                     <!-- modal -->
                     <div class="modal fade" id="x<?php echo $student['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
