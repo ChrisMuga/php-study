@@ -12,8 +12,8 @@ class Mysql{
     public function connect()
     {
         $servername     = "localhost";
-        $username       = "rootx";
-        $password       = "rootx";
+        $username       = "root";
+        $password       = "";
         $dbname         = "students";
 
         #Create connection
