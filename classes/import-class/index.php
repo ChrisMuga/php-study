@@ -75,10 +75,10 @@ else
         <form action="#" method="post">
             <input type="number"    class="form-control text-danger"                    value="<?php echo rand(10,10000);?>" name="id" required/>
             <input type="text"      class="form-control"    placeholder="Student Name"  name="name" required/>
-            <input type="email"      class="form-control"    placeholder="Email Address"  name="email" required/>
             <input type="text"      class="form-control"    placeholder="Phone Number"  name="phone_number" required/>
             <input type="text"      class="form-control"    placeholder="Location"      name="location" required/>
-            <input type="number"    class="form-control"    placeholder="Class"         name="number" required/>
+            <input type="number"    class="form-control"    placeholder="Class"         name="class" required/>
+            <input type="email"      class="form-control"    placeholder="Email Address"  name="email" required/>
             <hr/>
             <input type="submit"    class="form-control btn btn-primary"                value="Enter"/>
             <input type="reset"     class="form-control btn btn-secondary"              value="Clear"/>
