@@ -1,8 +1,6 @@
 <?php
-
     require_once('header.php');
     require_once('d-base/mysql.php');
-
 ?>
 
 <div class="alert alert-secondary my-2 text-center">
@@ -34,7 +32,7 @@
                 foreach($students as $student)
                 {
                     ?>
-                    <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#x<?php echo $student['id'];?>"><span class="badge badge-primary mx-3"><?php echo $student['id']; ?></span> <span class="badge badge-danger mx-3"><?php echo $student['name']; ?></span> <span class="badge badge-dark mx-3 float-right">CLASS <?php echo $student['class']; ?></span>  </a>
+                    <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#x<?php echo $student['id'];?>"><span class="badge badge-primary mx-3"><?php echo $student['id']; ?></span> <span class="badge badge-danger mx-3"><?php echo $student['name']; ?></span> <i class="float-right fas fa-arrow-circle-right"></i> <span class="badge badge-dark mx-3 float-right">CLASS <?php echo $student['class']; ?></span>  </a>
                     
                     <!-- modal -->
                     <div class="modal fade" id="x<?php echo $student['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -47,20 +45,19 @@
                             </button>
                         </div>
                         <div class="modal-body text-center">
-                            
-                                        <h1><?php echo $student['name'];?></h1>
+                        
+                            <h1><?php echo $student['name'];?></h1>
+                        
+                            <h2 class="text-success"><?php echo $student['phone_number'];?></h2>
+                        
+                            <h3><?php echo $student['location'];?></h3>
+                        
+                            <h5>Class <?php echo $student['class'];?></h5>
+
+                            <h6 class="text-danger font-weight-bold"> <?php echo $student['email'];?></h6>
+
+                            <a href="edit.php?id=<?php echo $student['id']; ?>" class="btn btn-warning">Edit</a>
                                     
-                                        <h2 class="text-success"><?php echo $student['phone_number'];?></h2>
-                                   
-                                        <h3><?php echo $student['location'];?></h3>
-                                   
-                                        <h5>Class <?php echo $student['class'];?></h5>
-
-                                        <h6 class="text-danger font-weight-bold"> <?php echo $student['email'];?></h6>
-
-                                        <a href="edit.php?id=<?php echo $student['id']; ?>" class="btn btn-warning">Edit</a>
-                                   
-                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
